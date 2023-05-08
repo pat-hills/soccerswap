@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Player Details | {{ player.Name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-3 mb-4">
+            <div class="col-md-4">
+                <img src="{{ asset('images/football-player.png') }}" alt="{{ player.Name }}" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+            <label>Player Details</label>
+                <h1 class="mt-4 mt-md-0">{{ player.Name }} {{ player.Surname }}, {{ player.Team.Name }} </h1>
+                 <label>Price </label>
+                <h2>{{ player.priceTag }} €</h2> 
+                <hr>
+   {% for message in app.flashes('error') %}
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+   {% endfor %}               
+{{ form_start(form, {'action': path('player.show', {'id': player.id}),'name': 'sell_player_form', 'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+
+
+
+ <div class="form-group">
+        {{ form_label(form.PlayerAmount) }}
+        {{ form_widget(form.PlayerAmount, {
+            'attr': {
+                'class': 'form-control ' ~ (form.PlayerAmount.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.PlayerAmount) }}
+        </div>
+    </div>
+
+   <div class="form-group">
+        {{ form_label(form.Buyer) }}
+        {{ form_widget(form.Buyer, {
+            'attr': {
+                'class': 'form-control ' ~ (form.Buyer.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Buyer) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.Category) }}
+        {{ form_widget(form.Category, {
+            'attr': {
+                'class': 'form-control ' ~ (form.Category.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Category) }}
+        </div>
+    </div>
+
+
+    {{ form_widget(form.add, {'attr': {'class': 'btn btn-warning w-25'}}) }}
+    {{ form_end(form) }}
+                 
+            </div>
+        </div>
+    </div>
+{% endblock %}

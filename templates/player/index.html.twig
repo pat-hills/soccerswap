@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Sell Players {% endblock %}
+
+{% block body %}
+<style>
+     
+</style>
+
+<div class="container">
+<div class="col-md-8">
+</br>
+    <a href="{{ path('team.display') }}" class="">
+   <img style="" src="{{ asset('images/previous.png') }}" alt="socc" class="img-round">
+   </a>
+   </br>
+    <h2 class="mt-4 mt-md-0">Buy or Sell Players</h2>
+    <hr>
+   <table>
+    <thead>
+        <tr>
+            <th>Name Of Player</th>
+            <th>Team</th>
+             <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+         {% for player in players %}
+            <tr>
+                <td>{{ player.player_name }}, {{player.player_surname}}</td>
+                <td>{{ player.team_name }}</td>
+
+                 <td><a href="{{ path('player.show', {id: player.pid}) }}" class="btn btn-dark">
+    BUY/SELL PLAYER
+</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {{ knp_pagination_render(players) }}
+</div>
+
+</div>    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home | Soccer Swap{% endblock %}
+
+
+
+{% block body %}
+    <div class="container">
+    
+    <div class="row">
+       
+            <div class="col-md-12">
+                <div class="card mb-4">
+                   
+                    <div class="card-body">
+                        <h2 class="card-title">Welcome To SoccerSwap</h2>
+                        <p class="card-text">
+                        SoccerSwap could is an online marketplace or platform that allows users to trade or exchange soccer players in a fast and efficient manner.
+                        Sellers would be able to list their soccer players for sale on the platform.
+                         These listings would typically include information about the player, such as their name, position, skills, statistics, and possibly their desired transfer fee or terms.
+                        </p>
+
+                        <div class="">
+                        <p>Why wait? Begin by adding your teams</p>
+                            <a href="{{ path('team.add') }}" class="btn btn-dark">Add Team</a>
+                             
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </div>
+
+          
+       <div class="col-md-12" >
+                <div class="card mb-4">
+                   
+                    <div class="card-body">
+                        <h4 class="card-title">We are trusted by:</h4>
+                       
+                       
+                        <table>
+                        <tr>
+                        <td>
+                        <div class="col-md-4">
+                          <a href="https://www.scorebar.com/" target="_blank">
+                         <img style="height: auto;width: 200px; border-radius:10px" src="{{ asset('images/score_bar.png') }}" alt="socc" class="img-round">
+                              </a>    
+                        </div>
+                        </td>
+
+                         <td>
+
+                       <div class="col-md-4">
+                        <a href="https://www.livebet.com/" target="_blank">
+                        <img style="height: auto;width: 200px; border-radius:10px" src="{{ asset('images/live_bet.png') }}" alt="socc" class="img-round">
+                            </a>   
+                             
+                        </div>
+                        </td>
+
+
+                         <td>
+                          <div class="col-md-4">
+                          <a href="https://www.airportia.com/" target="_blank">
+                         <img style="height: auto;width: 200px; border-radius:10px" src="{{ asset('images/air_portia.png') }}" alt="socc" class="img-round">
+                             </a>
+                        </div>
+
+                        </td>
+                        </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        
+    </div>
+</div>
+{% endblock %}

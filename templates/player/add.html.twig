@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add | Player!{% endblock %}
+
+{% block body %}
+<style>
+     
+</style>
+
+<div class="container">
+<div class="col-md-8">
+</br>
+   <a href="{{ path('team.add') }}" class="">
+   <img style="" src="{{ asset('images/previous.png') }}" alt="socc" class="img-round">
+   </a>
+   </br></br>
+    <h5 class="mt-4 mt-md-0">Welcome <b>{{sessionTeamName}}</b>, let's setup your players</h5>
+
+    {% if hasRecords %}
+  
+    <a style="float:right; margin-top:-50px" href="{{ path('team.display') }}" class="btn btn-dark ViewPlayers">View teams and players</a>
+   </a>
+    {% else %}
+        <p>No registered players at the moment</p>
+    {% endif %}
+    <hr>
+
+   {% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+   {% endfor %}
+    
+    {{ form_start(form, {'attr': {'class': 'mt-4 p-4 bg-light'}}) }}
+    <div class="form-group">
+        {{ form_label(form.Name) }}
+        {{ form_widget(form.Name, {
+            'attr': {
+                'class': 'form-control ' ~ (form.Name.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Name) }}
+        </div>
+    </div>
+
+     <div class="form-group">
+        {{ form_label(form.Surname) }}
+        {{ form_widget(form.Surname, {
+            'attr': {
+                'class': 'form-control ' ~ (form.Surname.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Surname) }}
+        </div>
+    </div>
+
+     <div class="form-group">
+        {{ form_label(form.PriceTag) }}
+        {{ form_widget(form.PriceTag, {
+            'attr': {
+                'class': 'form-control ' ~ (form.PriceTag.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.PriceTag) }}
+        </div>
+    </div>
+
+   <div class="form-group">
+        {{ form_label(form.Team) }}
+        {{ form_widget(form.Team, {
+            'attr': {
+                'class': 'form-control ' ~ (form.Team.vars.valid ? '' : 'is-invalid')
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.Team) }}
+        </div>
+    </div>
+
+
+    {{ form_widget(form.add, {'attr': {'class': 'btn btn-warning w-25'}}) }}
+    {{ form_end(form) }}
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Teams and their player's {% endblock %}
+
+{% block body %}
+<style>
+     
+</style>
+
+<div class="container">
+<div class="col-md-8">
+    </br>
+    <a href="{{ path('player.add') }}" class="">
+   <img style="" src="{{ asset('images/previous.png') }}" alt="socc" class="img-round">
+   </a>
+   </br></br>
+    <h2 class="mt-4 mt-md-0">Teams and their players</h2>
+    <a style="float:right; margin-top:-50px" href="{{ path('player.display') }}" class="btn btn-dark ViewPlayers">Buy or sell player</a> 
+    <hr>
+   <table>
+    <thead>
+        <tr>
+            <th>Team</th>
+            <th>Players</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for team in teamsAndPlayers %}
+            <tr>
+                <td>{{ team.name }}</td>
+                <td>
+                    {% if team.MyPlayers|length > 0 %}
+                        <ul>
+                            {% for player in team.MyPlayers %}
+                                <li>{{ player.name }}, {{ player.Surname }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No players registered yet.</p>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="pagination">
+    {{ knp_pagination_render(teamsAndPlayers) }}
+</div>
+
+    
+</div>
+</div>
+
+
+{% endblock %}
