@@ -69,7 +69,7 @@ Now lets start...(Windows Environment Deployment/Installation)
 
     Incase your apache runs on port 81, like in my case it would be
 
-    http://localhost:80/soccerswap/public/
+    http://localhost:81/soccerswap/public/
 
     Basically incase the port was change, URL is
 
