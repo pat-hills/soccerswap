@@ -7,7 +7,7 @@ from the repository with all files in the root directory of the
 App is remotely deploy/install here for remote testing/access:
 https://www.spencamgroup.com/soccerswap/public/
 
-Now lets start...
+Now lets start...(Windows Environment Deployment/Installation)
 
 1. Xampp should be installed on your windows environment
    (Can be downloaded from here:)
