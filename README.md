@@ -4,8 +4,7 @@ Before you start, make sure the project 'SoccerSwap' is cloned
 from the repository with all files in the root directory of the 
 'soccerswap' root folder directory.
 
-App is remotely deploy/install here for remote testing/access:
-https://www.spencamgroup.com/soccerswap/public/
+
 
 Now lets start...(Windows Environment Deployment/Installation)
 
